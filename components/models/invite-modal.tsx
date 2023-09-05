@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Check, Copy, RefreshCcw } from "lucide-react";
+import axios from "axios";
 
 import {
     Dialog,
@@ -9,12 +10,12 @@ import {
     DialogHeader,
     DialogTitle
 } from "@/components/ui/dialog";
-import { useModal } from "@/hooks/use-modal-store";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useOrigin } from "@/hooks/use-origin";
-import axios from "axios";
+import { useModal } from "@/hooks/use-modal-store";
+import { cn } from "@/lib/utils";
 
 
 
@@ -88,7 +89,7 @@ export const InviteModal = () => {
                         onClick={onNew}
                         className="text-xs text-zinc-500 mt-4">
                         Generate a new link
-                        <RefreshCcw className="w-4 h-4 ml-2" />
+                        <RefreshCcw className={cn("w-4 h-4 ml-2", isLoading && "animate-spin")} />
                     </Button>
                 </div>
             </DialogContent>
